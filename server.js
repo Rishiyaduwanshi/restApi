@@ -2,7 +2,6 @@ require("dotenv").config();
 const express = require("express");
 const PORT = process.env.PORT || 4521;
 const APP_URI = process.env.APP_URI
-console.log(APP_URI);
 const users = require("./MOCK_DATA.json");
 const app = express();
 
