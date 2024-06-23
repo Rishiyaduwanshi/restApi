@@ -1,11 +1,13 @@
 require("dotenv").config();
 const express = require("express");
+const fs = require("fs");
 const PORT = process.env.PORT || 4521;
-const APP_URI = process.env.APP_URI
+const APP_URI = process.env.APP_URI;
 const users = require("./MOCK_DATA.json");
 const app = express();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Root endpoint
 app.get("/", (req, res) => {
@@ -61,20 +63,31 @@ app.get("/users/:studentId", (req, res) => {
 });
 
 // Endpoint to get all users (API version)
-app.get("/api/users", (req, res) => {
-  res.json(users);
-});
+app
+  .route("/api/users")
+  .get((req, res) => {
+    res.json(users);
+  })
+  .post((req, res) => {
+    users.push({student_id : users.length+1, ...req.body})
+    fs.writeFileSync("./MOCK_DATA.json", JSON.stringify(users,null,2));
+    res.json({status : "Success",  "Student ID: "  :  users.length });
+  });
 
 // Endpoint to get a specific user by studentId and handle PUT and PATCH methods
-app.route("/api/users/:studentId")
+app
+  .route("/api/users/:student_id")
   .get((req, res) => {
-    const studentId = req.params.studentId;
-    const user = users.find((user) => user.student_id === parseInt(studentId));
-
-    if (user) {
-      res.json(user);
-    } else {
-      res.status(404).send("User not found");
+    const student_id = req.params.student_id;
+    const user = users.find((user) => user.student_id == student_id);
+    try {
+      if (user) {
+        res.json(user);
+      } else {
+        res.status(404).send("User not found");
+      }
+    } catch (err) {
+      res.status(404).send("User not found" + err);
     }
   })
   .put((req, res) => {
