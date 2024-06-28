@@ -11998,53 +11998,5 @@
       "enrollment_date": "9/30/2020",
       "graduation_date": "3/21/2025",
       "full_name": "Kalle Flewin"
-    },
-    {
-      "student_id": 1001,
-      "first_name": "Abhinav",
-      "last_name": "Prakash",
-      "age": 22,
-      "email": "abprakash85409@gmail.com",
-      "major": "CSE",
-      "gpa": 8.2,
-      "enrollment_date": "12/1/2020",
-      "graduation_date": "8/4/2025",
-      "full_name": "Abhinav Prakash"
-    },
-    {
-      "student_id": 1002,
-      "first_name": "Rishi",
-      "last_name": "Ranjan",
-      "age": "12",
-      "email": "rishi@gmail.com",
-      "major": "it",
-      "gpa": "4.5",
-      "enrollment_date": "12/12/2024",
-      "graduation_date": "12/12/2028",
-      "full_name": "Rishi Ranjan"
-    },
-    {
-      "student_id": 1003,
-      "first_name": "John",
-      "last_name": "Doe",
-      "age": 21,
-      "email": "john.doe@example.com",
-      "major": "Computer Science",
-      "gpa": 3.9,
-      "enrollment_date": "2021-09-01",
-      "graduation_date": "2025-06-01",
-      "full_name": "John Doe"
-    },
-    {
-      "student_id": 1004,
-      "first_name": "fifa",
-      "last_name": "liksa",
-      "age": 21,
-      "email": "fifa@example.com",
-      "major": "Computer Science",
-      "gpa": 3.9,
-      "enrollment_date": "2021-09-01",
-      "graduation_date": "2025-06-01",
-      "full_name": "fifa liksa"
     }
   ]
