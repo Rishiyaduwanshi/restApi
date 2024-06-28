@@ -16,4 +16,4 @@ router.get("/", (req, res) => {
 });
 
 
-module.exports = homeRoute
+module.exports = router 

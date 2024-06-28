@@ -1,8 +1,8 @@
 require("dotenv").config();
-const express = require("express");
 const PORT = process.env.PORT || 4521;
-require("./src/db/dbConnection");
+const express = require("express");
 const app = express();
+require("./src/db/dbConnection");
 
 
 
@@ -12,7 +12,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/",require("./src/routes/home.route"))
 app.use("/users", require("./src/routes/users.route"))
 app.use("/api", require("./src/routes/api.route"))
-
 
 
 
