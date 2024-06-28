@@ -1,10 +1,8 @@
+require("dotenv").config({ path: "../../.env" });
 const express = require("express");
-require("dotenv").config({path : "../../.env"});
 const APP_URI = process.env.APP_URI;
 const router = express.Router();
 const users = require("../models/mockdata.schema");
-
-
 
 router.get("/", async (req, res) => {
   const userList = await users.find({});
@@ -23,14 +21,12 @@ router.get("/", async (req, res) => {
   }
 });
 
-
-
-//users/:student_id route 
+//users/:student_id route
 router.get("/:studentId", async (req, res) => {
-    const student_id = req.params.studentId;
-    const user = await users.findOne({ student_id: student_id });
-    if (user) {
-      res.send(`
+  const student_id = req.params.studentId;
+  const user = await users.findOne({ student_id: student_id });
+  if (user) {
+    res.send(`
         <body>
           <center>
             <a href="${APP_URI}">Click to go home page</a>
@@ -49,15 +45,9 @@ router.get("/:studentId", async (req, res) => {
           </center>
         </body>
       `);
-    } else {
-      res.status(404).send("User not found");
-    }
-  });
-
-
-
-
-
-  
+  } else {
+    res.status(404).send("User not found");
+  }
+});
 
 module.exports = router;
