@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 0px 4px;
+            border-radius: 4px;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 4px;
+            overflow: auto;
+            position: relative;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .copy-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the API Home Page</h1>
+        <p>Use the following routes to interact with the API using Postman or any other API tool:</p>
+        <ul>
+            <li><strong>GET /users</strong> - <a href="<%= APP_URI %>/users" target="_blank">Fetch all users</a></li>
+            <li><strong>POST /users</strong> - Create a new user</li>
+            <li><strong>GET /users/:student_id</strong> - <a href="<%= APP_URI %>/users/50" target="_blank">Fetch a user by ID</a></li>
+            <li><strong>PATCH /users/:student_id</strong> - Update a user by ID</li>
+            <li><strong>DELETE /users/:student_id</strong> - Delete a user by ID</li>
+            <li><strong>GET /api/users</strong> - Fetch all users (API)</li>
+            <li><strong>POST /api/users</strong> - Create a new user (API)</li>
+            <li><strong>GET /api/users/:student_id</strong> - Fetch a user by ID (API)</li>
+            <li><strong>PATCH /api/users/:student_id</strong> - Update a user by ID (API)</li>
+            <li><strong>DELETE /api/users/:student_id</strong> - Delete a user by ID (API)</li>
+        </ul>
+        <p>Replace <code>:student_id</code> with the actual student ID when testing the routes.</p>
+
+        <h2>POST /users and POST /api/users</h2>
+        <p>To create a new user, send a POST request with the following JSON body:</p>
+        <pre>
+            <button class="copy-button" onclick="copyToClipboard('postJson')">Copy</button>
+            <code id="postJson">
+{
+  "first_name": "whatever you want ",
+  "last_name": "whatvere u want ",
+  "email": "give differnt mail every time ",
+  "age": whatever you give in integer ,
+  "major": "whatever subjecct u can give ",
+  "gpa": whatever u number can give ,
+  "enrollment_date": "in format YYYY/MM/DD",
+  "graduation_date": "in format YYYY/MM/DD"
+}
+            </code>
+        </pre>
+
+        <h2>PATCH /users/:student_id and PATCH /api/users/:student_id</h2>
+        <p>To update a user, send a PATCH request with the JSON body containing only the fields you want to update. For example, to update the email and age:</p>
+        <pre>
+            <button class="copy-button" onclick="copyToClipboard('patchJson')">Copy</button>
+            <code id="patchJson">
+{
+  "email": "new.email@example.com",
+  "age": 22
+}
+            </code>
+        </pre>
+        <p>Note: In the PATCH method, you do not need to send the whole schema, only the data which needs to be updated.</p>
+    </div>
+
+    <script>
+        function copyToClipboard(elementId) {
+            const copyText = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(copyText).then(() => {
+                alert('Copied to clipboard');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+</body>
+</html>

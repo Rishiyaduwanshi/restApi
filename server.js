@@ -1,19 +1,26 @@
 require("dotenv").config();
 const PORT = process.env.PORT || 4521;
 const express = require("express");
+require('ejs')
 const app = express();
+const path = require('path');
+
+
+// Set up database connection
 require("./src/db/dbConnection");
 
+// Set the view engine to EJS
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "src/views"));
 
-
-
+// Middleware to parse incoming requests
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/",require("./src/routes/home.route"))
-app.use("/users", require("./src/routes/users.route"))
-app.use("/api", require("./src/routes/api.route"))
 
-
+// Routes
+app.use("/", require("./src/routes/home.route"));
+app.use("/users", require("./src/routes/users.route"));
+app.use("/api", require("./src/routes/api.route"));
 
 
 app.listen(PORT, () => {
