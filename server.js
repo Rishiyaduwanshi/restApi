@@ -1,4 +1,5 @@
 require("dotenv").config();
+const cors = require("cors")
 const PORT = process.env.PORT || 4521;
 const express = require("express");
 require('ejs')
@@ -15,6 +16,7 @@ app.set("views", path.join(__dirname, "src/views"));
 
 // Middleware to parse incoming requests
 app.use(express.json());
+app.use(cors())
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
