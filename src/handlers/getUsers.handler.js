@@ -10,6 +10,10 @@ module.exports = {
       .join("");
     try {
       res.send(`
+        <head> 
+          <title>All Users</title>
+          <link rel="icon" type="image/svg+xml" href="favicon.png">
+        </head>
               <h1>List of users:</h1>
               <a href="${APP_URI}">Click to go home page</a>
               <ol>${userListHtml}</ol>
@@ -25,7 +29,10 @@ module.exports = {
     const user = await users.findOne({ student_id: student_id });
     if (user) {
       res.send(`
-                    <body>
+        <head> 
+        <title>${user.full_name} </title>
+        </head>
+        <body>
                       <center>
                         <a href="${APP_URI}">Click to go home page</a>
                         <br/><br/><br/>

@@ -15,6 +15,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "src/views"));
 
 // Middleware to parse incoming requests
+app.use(express.static(path.join(__dirname,'Public')))
 app.use(express.json());
 app.use(cors())
 app.use(express.urlencoded({ extended: true }));
