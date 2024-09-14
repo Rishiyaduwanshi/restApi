@@ -16,11 +16,8 @@
         <p>Use the following routes to interact with the API using Postman or any other API tool:</p>
         <ul>
             <li><strong>GET /users</strong> - <a href="<%= APP_URI %>/users">Fetch all users</a></li>
-            <li><strong>POST /users</strong> - Create a new user</li>
             <li><strong>GET /users/:student_id</strong> - <a href="<%= APP_URI %>/users/50">Fetch a user
                     by ID</a></li>
-            <li><strong>PATCH /users/:student_id</strong> - Update a user by ID</li>
-            <li><strong>DELETE /users/:student_id</strong> - Delete a user by ID</li>
             <li><strong>GET /api/users</strong> - Fetch all users (API)</li>
             <li><strong>POST /api/users</strong> - Create a new user (API)</li>
             <li><strong>GET /api/users/:student_id</strong> - Fetch a user by ID (API)</li>
@@ -30,7 +27,7 @@
         <p>Replace <code>:student_id</code> with the actual student ID when testing the routes.</p>
 
         <h2>POST /users and POST /api/users</h2>
-        <p>To create a new user, send a POST request with the following JSON body:</p>
+        <p>To create a new user, send a POST request make sure you use the following JSON body:</p>
         <pre>
             <button class="copy-button" onclick="copyToClipboard('postJson')">Copy</button>
             <code id="postJson">
@@ -39,7 +36,7 @@
   "last_name": "whatvere u want ",
   "email": "give differnt mail every time ",
   "age": whatever you give in integer ,
-  "major": "whatever subjecct u can give ",
+  "major": "whatever subject u can give ",
   "gpa": whatever u number can give ,
   "enrollment_date": "in format YYYY/MM/DD",
   "graduation_date": "in format YYYY/MM/DD"

@@ -1,6 +1,6 @@
 const users = require("../models/mockdata.schema");
 require("dotenv").config("../../.env");
-const APP_URI = process.env.APP_URI;
+const APP_URI = process.env.APP_URI;                        
 const getNextStudentId = require("../utils/getNextStudentID");
 
 // ****************************

@@ -5,8 +5,6 @@ const express = require("express");
 require('ejs')
 const app = express();
 const path = require('path');
-
-
 // Set up database connection
 require("./src/db/dbConnection");
 
